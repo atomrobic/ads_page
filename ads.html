@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iHUB Ads - Digital Advertising Solutions</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+        body {
+            font-family: 'Space Grotesk', 'Noto Sans', sans-serif;
+        }
+        
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .pricing-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(13, 148, 136, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #0d9488;
+            color: #0d9488;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+        
+        .play-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { 
+                box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7);
+            }
+            50% { 
+                box-shadow: 0 0 0 20px rgba(13, 148, 136, 0);
+            }
+        }
+        
+        .teal-gradient {
+            background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+        }
+        
+        .teal-light {
+            background-color: #f0fdfa;
+        }
+        
+        .teal-card {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            border: 1px solid #99f6e4;
+        }
+
+        /* Feature image styling */
+        .feature-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Video container styling */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.979);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease;
+        }
+        
+        .video-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .video-container:hover .video-controls {
+            opacity: 1;
+        }
+        
+        .progress-bar {
+            flex-grow: 1;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+            margin: 0 15px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .progress {
+            position: absolute;
+            height: 100%;
+            background: #0d9488;
+            border-radius: 2px;
+            width: 0%;
+        }
+        
+        .control-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+        }
+    .card-shadow {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+    
+    .video-container {
+        position: relative;
+        background-color: #000;
+    }
+    
+    #coverImage {
+        background-image: url('assets/new_ads.png');
+        background-size: cover;
+        background-position: center;
+        z-index: 10;
+    }
+    
+    .video-controls {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 5;
+    }
+    
+    .video-container:hover .video-controls {
+        opacity: 1;
+    }
+    
+    .control-btn {
+        background: rgba(0, 0, 0, 0.792);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    
+    .control-btn:hover {
+        background: rgba(0, 0, 0, 0.7);
+        transform: scale(1.05);
+    }
+    
+    .progress-bar {
+        flex: 1;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .progress {
+        height: 100%;
+        background: #fff;
+        border-radius: 3px;
+        width: 0%;
+        transition: width 0.1s linear;
+    }
+    </style>
+</head>
+<body class="bg-teal-50">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-10 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center">
+                <div class="w-10 h-10 rounded-lg teal-gradient flex items-center justify-center mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 256 256">
+                        <path d="M216,40H136V24a8,8,0,0,0-16,0V40H40A16,16,0,0,0,24,56V176a16,16,0,0,0,16,16H79.36L57.75,219a8,8,0,0,0,12.5,10l29.59-37h56.32l29.59,37a8,8,0,1,0,12.5-10l-21.61-27H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,136H40V56H216V176ZM104,120v24a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Zm32-16v40a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm32-16v56a8,8,0,0,1-16,0V88a8,8,0,0,1,16,0Z"></path>
+                    </svg>
+                </div>
+                <h1 class="text-xl font-bold text-gray-900">iHUB Ads</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#video" class="text-gray-700 hover:text-teal-600 font-medium">Ad Preview</a>
+                <a href="#features" class="text-gray-700 hover:text-teal-600 font-medium">Why iHUB</a>
+                <a href="#pricing" class="text-gray-700 hover:text-teal-600 font-medium">Pricing</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button class="flex items-center space-x-2 bg-gray-100 hover:bg-gray-200 rounded-full px-3 py-2 transition-colors">
+                    <div class="w-8 h-8 rounded-full teal-gradient flex items-center justify-center text-white font-medium text-sm">
+                        JD
+                    </div>
+                    <span class="text-gray-700 font-medium hidden md:block">John Doe</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 bg-gradient-to-br from-teal-500 to-teal-700 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Unlock Instant Visibility for Your Business</h1>
+                <p class="text-xl mb-8 opacity-90">The iHUB Ad Screen puts your message in front of real people at the exact moment they are nearby and ready to buy.</p>
+                <button class="btn-primary text-white font-bold py-4 px-10 rounded-xl shadow-lg text-lg">
+                    Start Advertising Today
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Preview Section -->
+    <section id="video" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Interactive Ad Preview</h2>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">See how your ads will look on digital screens in high-traffic locations</p>
+        </div>
+
+        <div class="max-w-5xl mx-auto bg-white rounded-2xl card-shadow overflow-hidden">
+            <!-- Video Container -->
+            <div class="video-container aspect-video relative">
+                <!-- Cover Image -->
+                <div id="coverImage" class="absolute inset-0 bg-cover bg-center flex items-center justify-center transition-opacity duration-300">
+                    <div class="text-center text-white bg-black bg-opacity-50 p-8 rounded-2xl">
+                        <svg class="w-16 h-16 mx-auto mb-4 cursor-pointer" id="playCoverBtn" fill="currentColor" viewBox="0 0 256 256">
+                            <path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path>
+                        </svg>
+                        <p class="text-xl font-medium">Click to preview your ad</p>
+                    </div>
+                </div>
+                
+                <!-- Video Element -->
+                <video id="adVideo" class="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1519389950472-67a3e011cebd?w=1200&h=800&fit=crop">
+                    <!-- Sample ad videos from Pexels (royalty-free) -->
+                    <source src="assets/videos.mp4" type="video/mp4">
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-pink-and-blue-abstract-background-1239-large.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <!-- Video Controls -->
+                <div class="video-controls">
+                    <button class="control-btn" id="playPauseBtn">
+                        <svg id="playIcon" width="24" height="24" fill="white" viewBox="0 0 256 256">
+                            <path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"></path>
+                        </svg>
+                        <svg id="pauseIcon" width="24" height="24" fill="white" viewBox="0 0 256 256" style="display: none;">
+                            <path d="M216,48V208a16,16,0,0,1-16,16H160a16,16,0,0,1-16-16V48a16,16,0,0,1,16-16h40A16,16,0,0,1,216,48ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Z"></path>
+                        </svg>
+                    </button>
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <button class="control-btn" id="muteBtn">
+                        <svg id="volumeIcon" width="20" height="20" fill="white" viewBox="0 0 256 256">
+                            <path d="M240,128a15.76,15.76,0,0,1-6.16,12.52l-88.83,64a15.91,15.91,0,0,1-9,2.48,16.07,16.07,0,0,1-7.95-2.11,15.7,15.7,0,0,1-8-13.81V72.92a15.7,15.7,0,0,1,8-13.81,16,16,0,0,1,16.94,1.63l88.83,64A15.76,15.76,0,0,1,240,128Z"></path>
+                        </svg>
+                        <svg id="muteIcon" width="20" height="20" fill="white" viewBox="0 0 256 256" style="display: none;">
+                            <path d="M240,128a15.76,15.76,0,0,1-6.16,12.52l-88.83,64a15.91,15.91,0,0,1-9,2.48,16.07,16.07,0,0,1-7.95-2.11,15.7,15.7,0,0,1-8-13.81V72.92a15.7,15.7,0,0,1,8-13.81,16,16,0,0,1,16.94,1.63l88.83,64A15.76,15.76,0,0,1,240,128Z"></path>
+                            <line x1="56" y1="56" x2="200" y2="200" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section id="features" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Why Choose iHUB Ads?</h2>
+      <p class="text-gray-600 text-lg mt-2">Reach customers exactly where they walk, shop, and make decisions.</p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Card -->
+      <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+        <div class="flex justify-center mb-4">
+          <img src="https://img.freepik.com/premium-vector/group-people-stand-front-store-waiting-enter-there-are-some-people-line-while-others-are-walking-by-store-has-large-window-blue-awning_150234-145892.jpg" class="h-100 w-100 rounded-[50px]" alt="Feature">
+        </div>
+        <h3 class="text-xl font-semibold text-center mb-2">Real Foot Traffic. Real Results.</h3>
+        <p class="text-gray-600 text-center text-sm">
+          Ads appear where people are shopping, walking, waiting, and dining.
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+        <div class="flex justify-center mb-4">
+          <img src="https://blog.bit.ai/wp-content/uploads/2023/05/mw1920_Buffer-rafiki-01.png" class="h-100 w-100 rounded-[50px]" alt="Feature">
+        </div>
+        <h3 class="text-xl font-semibold text-center mb-2">Dynamic Content That Stands Out</h3>
+        <p class="text-gray-600 text-center text-sm">
+          Motion graphics catch attention 10× better than posters.
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+        <div class="flex justify-center mb-4">
+          <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXckzmvoJ2omNEQ8FJ_yQxACBRngsi8aX-iVgxVUCZxJWDbucmjkhqS0cdr1dxNnRq6CdEOZhTi1OczxMp60HaySISeYs7wJHhC2mg3YgHrno47BmrbOldNTkdIcM4uTj8fxoD8N?key=rONW3Dkwv-ffrsT-PfWyXg" class="h-100 w-100 rounded-[50px]" alt="Feature">
+        </div>
+        <h3 class="text-xl font-semibold text-center mb-2">Hyper-Local Targeting</h3>
+        <p class="text-gray-600 text-center text-sm">
+          Show your ads only in the locations your customers visit.
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+        <div class="flex justify-center mb-4">
+          <img src="https://www-cms.pipedriveassets.com/cdn-cgi/image/quality=70,format=auto/https://www-cms.pipedriveassets.com/How-to-create-a-communication-plan.png" class="h-100 w-100 rounded-[50px]" alt="Feature">
+        </div>
+        <h3 class="text-xl font-semibold text-center mb-2">Simple Setup</h3>
+        <p class="text-gray-600 text-center text-sm">
+          Upload once. We handle installation, scheduling, and monitoring.
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+        <div class="flex justify-center mb-4">
+          <img src="https://siteefy.com/wp-content/uploads/2024/10/Ecommerce-Uptime-and-Reliability.png" class="h-100 w-100 rounded-[50px]" alt="Feature">
+        </div>
+        <h3 class="text-xl font-semibold text-center mb-2">Reliable Uptime</h3>
+        <p class="text-gray-600 text-center text-sm">
+          Screens run 10 hours/day with instant cloud updates.
+        </p>
+      </div>
+
+      <!-- Card -->
+      <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition">
+        <div class="flex justify-center mb-4">
+          <img src="https://storage.googleapis.com/website-production/uploads/2020/07/online-campaign-tracking.png" class="h-100 w-100 rounded-[50px]" alt="Feature">
+        </div>
+        <h3 class="text-xl font-semibold text-center mb-2">Track What’s Running</h3>
+        <p class="text-gray-600 text-center text-sm">
+          See when and where your ad plays with daily proof-of-play.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="image" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Market Insights</h2>
+            <p class="text-gray-600 text-lg">Visual representation of market trends and data</p>
+        </div>
+
+        <div class="max-w-5xl mx-auto">
+            <div class="relative w-full overflow-hidden rounded-2xl shadow-xl">
+                <img 
+                    src="assets/growth.png" 
+                    alt="Market Graph"
+                    class="w-full h-full object-contain md:object-cover"
+                >
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-gray-600 text-lg">No hidden fees. Cancel anytime.</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Starter -->
+                <div class="bg-white rounded-2xl card-shadow p-8 pricing-card border border-gray-200">
+                    <h3 class="text-2xl font-bold text-center mb-6">Starter</h3>
+                    <div class="text-center mb-8">
+                        <span class="text-5xl font-bold">$99</span><span class="text-gray-600">/month</span>
+                    </div>
+                    <button class="btn-secondary w-full py-4 rounded-lg font-bold mb-6">Get Started</button>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Up to 10 screen slots</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>100 plays per day</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Basic templates</li>
+                    </ul>
+                </div>
+
+                <!-- Growth (Popular) -->
+                <div class="bg-gradient-to-br from-teal-500 to-teal-600 text-white rounded-2xl card-shadow p-8 pricing-card relative overflow-hidden transform scale-105">
+                    <div class="absolute top-0 right-0 bg-yellow-400 text-black text-xs font-bold px-4 py-1 rounded-bl-lg">MOST POPULAR</div>
+                    <h3 class="text-2xl font-bold text-center mb-6">Growth</h3>
+                    <div class="text-center mb-8">
+                        <span class="text-5xl font-bold">$199</span><span class="opacity-90">/month</span>
+                    </div>
+                    <button class="bg-white text-teal-600 w-full py-4 rounded-lg font-bold mb-6 hover:bg-gray-100">Choose Growth</button>
+                    <ul class="space-y-4">
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>20 screen slots</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>200 plays per day</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Premium design support</li>
+                    </ul>
+                </div>
+
+                <!-- Max Visibility -->
+                <div class="bg-white rounded-2xl card-shadow p-8 pricing-card border border-gray-200">
+                    <h3 class="text-2xl font-bold text-center mb-6">Max Visibility</h3>
+                    <div class="text-center mb-8">
+                        <span class="text-5xl font-bold">$299</span><span class="text-gray-600">/month</span>
+                    </div>
+                    <button class="btn-secondary w-full py-4 rounded-lg font-bold mb-6">Go Big</button>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>30 screen slots</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>300 plays per day</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>VIP support + custom design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2025 iHUB Ads. Reach customers where they already are.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Video player functionality
+        const video = document.getElementById('adVideo');
+        const playButton = document.getElementById('playButton');
+        const videoOverlay = document.getElementById('videoOverlay');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        const muteBtn = document.getElementById('muteBtn');
+        const volumeIcon = document.getElementById('volumeIcon');
+        const muteIcon = document.getElementById('muteIcon');
+        const progressBar = document.getElementById('progressBar');
+        const progress = document.getElementById('progress');
+        
+        // Play video function
+        function playVideo() {
+            video.play();
+            videoOverlay.classList.add('hidden');
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+        }
+        
+        // Pause video function
+        function pauseVideo() {
+            video.pause();
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+        }
+        
+        // Toggle play/pause
+        playPauseBtn.addEventListener('click', () => {
+            if (video.paused) {
+                playVideo();
+            } else {
+                pauseVideo();
+            }
+        });
+        
+        // Toggle mute
+        muteBtn.addEventListener('click', () => {
+            video.muted = !video.muted;
+            if (video.muted) {
+                volumeIcon.style.display = 'none';
+                muteIcon.style.display = 'block';
+            } else {
+                volumeIcon.style.display = 'block';
+                muteIcon.style.display = 'none';
+            }
+        });
+        
+        // Update progress bar
+        video.addEventListener('timeupdate', () => {
+            const percent = (video.currentTime / video.duration) * 100;
+            progress.style.width = `${percent}%`;
+        });
+        
+        // Seek functionality
+        progressBar.addEventListener('click', (e) => {
+            const rect = progressBar.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            video.currentTime = percent * video.duration;
+        });
+        
+        // Show overlay when video ends
+        video.addEventListener('ended', () => {
+            videoOverlay.classList.remove('hidden');
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+        });
+        
+        // Initialize video muted
+        video.muted = true;
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.getElementById('adVideo');
+        const coverImage = document.getElementById('coverImage');
+        const playCoverBtn = document.getElementById('playCoverBtn');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        const muteBtn = document.getElementById('muteBtn');
+        const volumeIcon = document.getElementById('volumeIcon');
+        const muteIcon = document.getElementById('muteIcon');
+        const progressBar = document.getElementById('progressBar');
+        const progress = document.getElementById('progress');
+        
+        // Play video when clicking on cover image
+        playCoverBtn.addEventListener('click', function() {
+            coverImage.style.opacity = '0';
+            setTimeout(() => {
+                coverImage.style.display = 'none';
+            }, 300);
+            video.play();
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+        });
+        
+        // Play/Pause toggle
+        playPauseBtn.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            } else {
+                video.pause();
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            }
+        });
+        
+        // Mute/Unmute toggle
+        muteBtn.addEventListener('click', function() {
+            if (video.muted) {
+                video.muted = false;
+                volumeIcon.style.display = 'block';
+                muteIcon.style.display = 'none';
+            } else {
+                video.muted = true;
+                volumeIcon.style.display = 'none';
+                muteIcon.style.display = 'block';
+            }
+        });
+        
+        // Update progress bar
+        video.addEventListener('timeupdate', function() {
+            const percent = (video.currentTime / video.duration) * 100;
+            progress.style.width = `${percent}%`;
+        });
+        
+        // Seek video when clicking on progress bar
+        progressBar.addEventListener('click', function(e) {
+            const rect = progressBar.getBoundingClientRect();
+            const pos = (e.clientX - rect.left) / rect.width;
+            video.currentTime = pos * video.duration;
+        });
+        
+        // Reset to cover when video ends
+        video.addEventListener('ended', function() {
+            coverImage.style.display = 'flex';
+            setTimeout(() => {
+                coverImage.style.opacity = '1';
+            }, 10);
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+        });
+    });
+</script>
+</body>
+</html>
