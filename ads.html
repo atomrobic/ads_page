@@ -278,17 +278,26 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="py-16 bg-gradient-to-br from-teal-500 to-teal-700 text-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">Unlock Instant Visibility for Your Business</h1>
-                <p class="text-xl mb-8 opacity-90">The iHUB Ad Screen puts your message in front of real people at the exact moment they are nearby and ready to buy.</p>
-                <button class="btn-primary text-white font-bold py-4 px-10 rounded-xl shadow-lg text-lg">
-                    Start Advertising Today
-                </button>
-            </div>
+   <section class="py-16 bg-gradient-to-br from-teal-500 to-teal-700 text-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                Unlock Instant Visibility for Your Business
+            </h1>
+
+            <p class="text-xl mb-8 opacity-90">
+                The iHUB Ad Screen puts your message in front of real people at the exact moment they are nearby and ready to buy.
+            </p>
+
+            <!-- Matching CTA Button -->
+            <button id="openModal"
+                class="bg-white text-teal-600 font-semibold py-3 px-8 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:bg-gray-100">
+                <i class="fas fa-bullhorn mr-2"></i> Start Advertising Today
+            </button>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Video Preview Section -->
     <section id="video" class="py-16 bg-white">
@@ -449,61 +458,173 @@
         </div>
     </div>
 </section>
+<!-- Pricing Section -->
+<section id="pricing" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+            <p class="text-gray-600 text-lg">Choose the plan that suits your business.</p>
+        </div>
+        
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
-                <p class="text-gray-600 text-lg">No hidden fees. Cancel anytime.</p>
+            <!-- Starter -->
+            <div class="bg-white rounded-2xl card-shadow p-8 pricing-card border border-gray-200">
+                <h3 class="text-2xl font-bold text-center mb-6">Starter</h3>
+                <div class="text-center mb-8">
+                    <span class="text-5xl font-bold">£200</span><span class="text-gray-600"> / 4 weeks</span>
+                </div>
+                <button class="btn-secondary w-full py-4 rounded-lg font-bold mb-6">Get Started</button>
+                <ul class="space-y-4 text-gray-700">
+                    <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                        1 × 10-second slot
+                    </li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                        Plays every loop
+                    </li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                        No design support
+                    </li>
+                </ul>
             </div>
-            
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Starter -->
-                <div class="bg-white rounded-2xl card-shadow p-8 pricing-card border border-gray-200">
-                    <h3 class="text-2xl font-bold text-center mb-6">Starter</h3>
-                    <div class="text-center mb-8">
-                        <span class="text-5xl font-bold">$99</span><span class="text-gray-600">/month</span>
-                    </div>
-                    <button class="btn-secondary w-full py-4 rounded-lg font-bold mb-6">Get Started</button>
-                    <ul class="space-y-4 text-gray-700">
-                        <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Up to 10 screen slots</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>100 plays per day</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Basic templates</li>
-                    </ul>
-                </div>
 
-                <!-- Growth (Popular) -->
-                <div class="bg-gradient-to-br from-teal-500 to-teal-600 text-white rounded-2xl card-shadow p-8 pricing-card relative overflow-hidden transform scale-105">
-                    <div class="absolute top-0 right-0 bg-yellow-400 text-black text-xs font-bold px-4 py-1 rounded-bl-lg">MOST POPULAR</div>
-                    <h3 class="text-2xl font-bold text-center mb-6">Growth</h3>
-                    <div class="text-center mb-8">
-                        <span class="text-5xl font-bold">$199</span><span class="opacity-90">/month</span>
-                    </div>
-                    <button class="bg-white text-teal-600 w-full py-4 rounded-lg font-bold mb-6 hover:bg-gray-100">Choose Growth</button>
-                    <ul class="space-y-4">
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>20 screen slots</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>200 plays per day</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Premium design support</li>
-                    </ul>
+            <!-- Growth (Popular) -->
+            <div class="bg-gradient-to-br from-teal-500 to-teal-600 text-white rounded-2xl card-shadow p-8 pricing-card relative overflow-hidden transform scale-105">
+                <div class="absolute top-0 right-0 bg-yellow-400 text-black text-xs font-bold px-4 py-1 rounded-bl-lg">
+                    MOST POPULAR
                 </div>
+                <h3 class="text-2xl font-bold text-center mb-6">Growth</h3>
+                <div class="text-center mb-8">
+                    <span class="text-5xl font-bold">£350</span><span class="opacity-90"> / 4 weeks</span>
+                </div>
+                <button class="bg-white text-teal-600 w-full py-4 rounded-lg font-bold mb-6 hover:bg-gray-100">Choose Growth</button>
+                <ul class="space-y-4">
+                    <li class="flex items-center"><svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                        1 × 10-second slot
+                    </li>
+                    <li class="flex items-center"><svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                        Plays more frequently across the loop
+                    </li>
+                    <li class="flex items-center"><svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                        Basic ad design included
+                    </li>
+                    <li class="flex items-center"><svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                        Priority scheduling during busy hours
+                    </li>
+                </ul>
+            </div>
 
-                <!-- Max Visibility -->
-                <div class="bg-white rounded-2xl card-shadow p-8 pricing-card border border-gray-200">
-                    <h3 class="text-2xl font-bold text-center mb-6">Max Visibility</h3>
-                    <div class="text-center mb-8">
-                        <span class="text-5xl font-bold">$299</span><span class="text-gray-600">/month</span>
+            <!-- Max Visibility -->
+            <div class="bg-white rounded-2xl card-shadow p-8 pricing-card border border-gray-200">
+                <h3 class="text-2xl font-bold text-center mb-6">Max Visibility</h3>
+                <div class="text-center mb-8">
+                    <span class="text-5xl font-bold">£500</span><span class="text-gray-600"> / 4 weeks</span>
+                </div>
+                <button class="btn-secondary w-full py-4 rounded-lg font-bold mb-6">Go Big</button>
+                <ul class="space-y-4 text-gray-700">
+                    <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                        1 × 10-second slot
+                    </li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                        Highest exposure in every loop
+                    </li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                        Premium motion ad design
+                    </li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                        Monthly performance summary
+                    </li>
+                    <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                        Free content refresh
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+  <!-- Modal Background -->
+<div id="modal"
+    class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden backdrop-blur-sm p-4">
+
+    <!-- Modal Content -->
+    <div class="bg-white rounded-xl shadow-2xl overflow-hidden w-full max-w-4xl flex">
+
+        <!-- Left Side Image -->
+        <div class="md:w-2/5 relative hidden md:block">
+            <img src="https://images.unsplash.com/29/night-square.jpg?q=80&w=1181&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Contact" class="w-full h-full object-cover">
+
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+            <!-- Text on Image -->
+            <div class="absolute inset-0 p-6 text-white flex flex-col justify-center">
+                <h2 class="text-3xl font-bold mb-4">Get in Touch</h2>
+                <p class="text-indigo-100 mb-6">
+                    We’d love to hear from you. Send your details and we’ll get in touch soon.
+                </p>
+
+                <div class="space-y-4 text-sm">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt w-5 mr-3"></i>
+                        <span>+91 98765 43210</span>
                     </div>
-                    <button class="btn-secondary w-full py-4 rounded-lg font-bold mb-6">Go Big</button>
-                    <ul class="space-y-4 text-gray-700">
-                        <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>30 screen slots</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>300 plays per day</li>
-                        <li class="flex items-center"><svg class="w-5 h-5 text-teal-500 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>VIP support + custom design</li>
-                    </ul>
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope w-5 mr-3"></i>
+                        <span>contact@ihub.com</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marker-alt w-5 mr-3"></i>
+                        <span>iHUB,United Kingdom</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- Right Side Form -->
+        <div class="md:w-3/5 w-full p-8">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Start Advertising Today</h2>
+
+            <form class="space-y-4">
+
+                <div>
+                    <label class="text-gray-700 font-medium">Name</label>
+                    <input type="text"
+                        class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none">
+                </div>
+
+                <div>
+                    <label class="text-gray-700 font-medium">Email</label>
+                    <input type="email"
+                        class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none">
+                </div>
+
+                <div>
+                    <label class="text-gray-700 font-medium">Subject</label>
+                    <input type="text"
+                        class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none">
+                </div>
+
+                <div>
+                    <label class="text-gray-700 font-medium">Message</label>
+                    <textarea rows="3"
+                        class="w-full mt-2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 outline-none"></textarea>
+                </div>
+
+                <button type="submit"
+                    class="bg-teal-600 hover:bg-teal-700 text-white w-full py-3 rounded-lg font-semibold shadow-md mt-4">
+                    Submit
+                </button>
+            </form>
+
+            <!-- Close Button -->
+            <button id="closeModal" class="mt-4 text-gray-500 hover:text-gray-800 text-sm">
+                Close
+            </button>
+        </div>
+    </div>
+</div>
+
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
@@ -691,6 +812,71 @@ document.addEventListener('DOMContentLoaded', function() {
     video.muted = true;
 });
 </script>
+   <script>
+        // Modal functionality
+        const openModalBtn = document.getElementById('openModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const contactForm = document.getElementById('contactForm');
 
+        // Open modal
+        openModalBtn.addEventListener('click', () => {
+            modalOverlay.classList.remove('opacity-0', 'invisible');
+            modalOverlay.classList.add('opacity-100', 'visible');
+            document.querySelector('.transform.scale-95').classList.remove('scale-95');
+            document.querySelector('.transform.scale-95').classList.add('scale-100');
+        });
+
+        // Close modal
+        closeModalBtn.addEventListener('click', () => {
+            modalOverlay.classList.remove('opacity-100', 'visible');
+            modalOverlay.classList.add('opacity-0', 'invisible');
+            document.querySelector('.transform.scale-100').classList.remove('scale-100');
+            document.querySelector('.transform.scale-100').classList.add('scale-95');
+        });
+
+        // Close modal when clicking outside
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('opacity-100', 'visible');
+                modalOverlay.classList.add('opacity-0', 'invisible');
+                document.querySelector('.transform.scale-100').classList.remove('scale-100');
+                document.querySelector('.transform.scale-100').classList.add('scale-95');
+            }
+        });
+
+        // Form submission
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            
+            // In a real application, you would send this data to a server
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('Thank you for your message! We will get back to you soon.');
+            
+            // Close modal
+            modalOverlay.classList.remove('opacity-100', 'visible');
+            modalOverlay.classList.add('opacity-0', 'invisible');
+            document.querySelector('.transform.scale-100').classList.remove('scale-100');
+            document.querySelector('.transform.scale-100').classList.add('scale-95');
+            
+            // Reset form
+            contactForm.reset();
+        });
+    </script>
+<script>
+    const modal = document.getElementById("modal");
+    document.getElementById("openModal").onclick = () => modal.classList.remove("hidden");
+    document.getElementById("closeModal").onclick = () => modal.classList.add("hidden");
+    modal.onclick = (e) => { if (e.target === modal) modal.classList.add("hidden"); };
+</script>
+
+<!-- Font Awesome for Icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 </body>
 </html>
